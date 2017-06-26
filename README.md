@@ -1,6 +1,12 @@
-## Pàgina del Projecte final de Postgrau d'Introducció en Data Science and Big Data 
+# Model predictiu d'un procés de compra en el sector de l'educació superior
 
-En aquesta web parlarem del nostre projecte.
+## Introducció
+
+Els diferents canvis que han sofert darrerament el sector de l'educació superior a Espanya arrel de l'entrada en vigor de l’Espai d’Educació Superior i dels canvis demografics que s'han produït als darrers anys així com la disminució de les subvencions per part dels governs a les diferents institucions públiques d'ensenyament, fan que hi hagi un entorn molt competitiu entre les diferents institucions a fi de poder aconseguir nous alumnes per poder desenvolupar la seva activitat. 
+
+Els criteris dels futurs alumnes per acabar seleccionant una institució s’han modificat. A part dels antics criteris que definien les institucions com el prestigi, l’antiguitat, la tradició i l’empleabilitat, s’estan afegint criteris que s’apropen perillosament a un model de negoci més comercial que no, d’una institució educativa. Aquest nous criteris van vinculats, a l’atenció personalitzada, el servei, posicionament en els rankings, satisfacció, preu.
+
+És per aquest motiu, que ens plantegem crear un model predictiu que ajudi a les institucions a millorar la seva eficàcia i eficiciència, a l’hora d’incorporar nous estudiant.  En base a les característiques de les persones que s’apropen demanant informació sobre els diferents programes formatius que ofereixen hem obtingut diferents variables.
 
 ## Participants al projecte
 
@@ -53,6 +59,7 @@ Una de les primeres preguntes que ens vam fer era si era més adequat treballar 
 L'anàlisi que hem acabat aplicant i sobre el que aplicarem el model de classificació serà en una visió a nivell d'usuari ja que finalment les accions de priorització a l'hora de dinamitzar els leads es fan a aquest nivell, a nivell d'usuari.
 
 Per fer això hem aplicat un groupby que ens ha permès donar-li la volta al fitxer de dades que teníem per treballar i canviar la visió de les mateixes.
+
 
 ## Random Forest
 
@@ -113,35 +120,7 @@ Aquestes variables són la regió, que com hem explicat al principi indica la co
 
 
 
+## K-means
 
+Hem aplicat un segon model de classificació al nostre dataset per veure si el resultat era millor i aconseguiem afinar el model de predicció.
 
-
-
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jercapstone/UBCapstonePG/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
