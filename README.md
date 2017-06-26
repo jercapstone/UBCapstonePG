@@ -85,6 +85,34 @@ Un segon output en que ens fixem del model és la matriu de confusió. Aparentme
 
 <img src="https://github.com/jercapstone/UBCapstonePG/blob/master/confusionmatrixRF.jpg" />
 
+En una primera mirada de la Matriu de confusió, ens diu que la predicció del nostre model té una precisió d'un 68% i un recall del 65%, un model amb uns resultats millorables però acceptables. No obstant, si baixem una mica aquesta informació i aprofondim en els paràmetres precisió i recall, ens trobem amb el següent:
+
+<img src="https://github.com/jercapstone/UBCapstonePG/blob/master/confusionmatrixRFexp.jpg" />
+
+La variable precision és la precisió del model i ens indicaria,  dels que hem predit com a no matriculats quants hem encertat. En el nostre cas un 73%. També ens indicaria dels que he predit com a matriculats quants he encertat que també en aquest cas seria un 56%. Això ja ens diu que el model encerta molt millor les prediccions dels no matriculats que les prediccions d'estudiants matriculats.
+
+Si aprofondim en la variable recall encara ens trobem amb informació una mica més difícil d'interpretar: dels que al dataset estan codificats com a no matriculats, quants hem predit de forma correcta. En el nostre cas un 95% el que indicaria un encert gairebé perfecte. En canvi si mirem al dataset, dels que eren matriculats quants s'han predit de forma correcta, veiem que aquest percentatge baixa a només el 16%. És a dir, dels que estaven matriculats només hem encertat amb el model que es matricularien en un 16%, el 84% els hem fallat.
+
+Queda clar doncs, que el nostre model l'hauríem de treballar millor incorporant alguna variable més que ens ajudi a ajustar-lo, sobretot pel que fa a la part dels matriculats. Com hem indicat previament,éÉs curiós també que si mirem la mitjana d'aquestes variables realment  no deixen malament el model. Ens quedem amb un precision average  i un recall average del 68 i 71 respectivament.
+
+
+## Variables que expliquen el model
+
+El darrer output que hem analitzat del classificador Random Forest és veure quines són les variables que està utilitzant per construir el model.
+
+<img src="https://github.com/jercapstone/UBCapstonePG/blob/master/variablesRF.jpg" />
+
+En aquest cas veiem que de les 27 variables que teníem (26 si traiem la variable que volíem explicar) estem explicant el model només amb 9. D'aquestes 9 hi ha tres que tenen una mica més pes que la resta.
+
+<img src="https://github.com/jercapstone/UBCapstonePG/blob/master/variablesRFexp.jpg" />
+
+Aquestes variables són la regió, que com hem explicat al principi indica la comunitat autònoma de l'usuari que ha realitzat el contacte amb la Universitat i que pesa un 33%, l'idioma del producte comprat i el producte comprat. Amb el coneixement que tenim del negoci, podem dir que el pes d'aquestes variables és esperat sobretot pel que fa a la regió ja que a la institució analitzada així com a la resta d'institucions d'educació superior d l'estat el pes territorial de les instituciosn encara és molt gran entre els estudiants a l'hora de decidir-se per buscar un centre on cursar els estudis superiors.
+
+
+<buscar algun document, o alguna referència a aquest tema per posar-ho com a font??>
+
+
+
 
 
 
