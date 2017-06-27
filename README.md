@@ -159,6 +159,10 @@ Aquestes variables són la regió, que com hem explicat al principi indica la co
 
 ## Conclussions i properes passes
 
+### Conclussions
+
+Les principals conclussions extretes del treball que hem realitzat, són les següents:
+
 <li>Hem aplicat tres models per intentar predir si un usuari que s'apropa a una Universitat durant un procés de campanya de matriculació s'acabarà matriculant o no, en base a l'activitat generada durant el procés.
 <li>Els models aplicats són un model d'Arbres de decisió, el model de Nearest Neighbours i el model Random Forest.
 <li>Un cop aplicats els tres models podem dir, que els tres models són molt millorables ja que en cap dels tres hem obtingut uns nivells de bonança del model òptim tot i que entre els tres podem dir que el que millor funciona és el Random Forest.
@@ -167,6 +171,8 @@ Aquestes variables són la regió, que com hem explicat al principi indica la co
 <li>A nivell general, podem dir que existeix relació entre el perfil socio-demogràfic i la intenció de matrícula.
 <li>També existeix relació entre l' activitat generada durante el procés de matrícula i la intenció de matrícula.
 <li>Així doncs, és possible trobar un model predictiu de la intenciño de matrícula a partir del perfil demogràfic de la persona interesada i l' activitat generada durant el procés de matrícula.
+
+### Properes passes
 
 Com a properes passes que ens posem com a fites tenim:
 
