@@ -31,6 +31,7 @@ Primer de tot, hem fet un descriptiu bàsic del nostre dataset on hem vist quant
 El nostre dataset consta de 27 variables que podem agrupar en variables d'usuari (identificador del mateix, país, comunitat autònoma, data de naixement i gènere), variables de producte d'interès (producte, àrea d'estudis del producte, subàrea d'estudis del producte, tipologia del producte i l'idioma de docència del producte), variables referents a l'interés de l'usuari (identificador de l'impacte, data creació impacte, estat de l'impacte, justificació, punt d'entrada de l'impacte, canal pel qual ha entrat, tipus de campanya i semestre d'entrada del lead), variables referents al cicle de maduració del mateix lead, als diferents estats pel que passa (data accés, data connexió, data proposta, etc.) i per últim la variable que volem predir referida a cada usuari, si s'ha matriculat o no.
 
 <img src="https://github.com/jercapstone/UBCapstonePG/blob/master/descriptive.jpg" />
+<img src="https://jercapstone.github.io/UBCapstonePG/descriptive.jpg" />
 
 Tenim un total de 133.240 registres referents a 4 campanyes diferents de matrícula.
 
