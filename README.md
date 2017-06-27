@@ -141,3 +141,5 @@ Veiem que els paràmetres que indiquen la qualitat del model, de forma general s
 Si fem el mateix exercici que hem realitzat abans sí que veiem que aquest model serveix millor per predir els estudiants que sí que s'acabaran matriculant. Si abans dels que predíem com a matriculats, encertavem només un 16% ara encertarem un 33%. No obstant no és una raó de pes per decantar-nos per aquest model.
 
 <img src="https://github.com/jercapstone/UBCapstonePG/blob/master/confusionmatrixKNexp.jpg" />
+
+<hi ha una segona matriu de confusió amb millor puntuació però no encerto a veure les diferències, la podem explicar enrique??, esta just al costat del grafic d'snooping>
