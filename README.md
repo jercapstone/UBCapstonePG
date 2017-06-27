@@ -32,7 +32,7 @@ El nostre dataset consta de 27 variables que podem agrupar en variables d'usuari
 
 <img src="https://jercapstone.github.io/UBCapstonePG/descriptive.jpg" />
 
-Tenim un total de 133.240 registres referents a 4 campanyes diferents de matrícula.
+Tenim un total de 133.240 registres referents a 4 campanyes diferents de matrícula, tot i que com es veu en la imatge anterior hi ha moltes variables on no està completa tota la informació.
 
 ### Primers dubtes: treballem a nivell d'impacte o a nivell d'usuari?
 
