@@ -109,6 +109,7 @@ Queda clar doncs, que el nostre model l'hauríem de treballar millor incorporant
 El darrer output que hem analitzat del classificador Random Forest és veure quines són les variables que està utilitzant per construir el model.
 
 <img src="https://jercapstone.github.io/UBCapstonePG/variablesRF.jpg" />
+
 En aquest cas veiem que de les 27 variables que teníem (26 si traiem la variable que volíem explicar) estem explicant el model només amb 9. D'aquestes 9 hi ha tres que tenen una mica més pes que la resta.
 
 
