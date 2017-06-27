@@ -34,24 +34,6 @@ El nostre dataset consta de 27 variables que podem agrupar en variables d'usuari
 
 Tenim un total de 133.240 registres referents a 4 campanyes diferents de matrícula.
 
-
-
-
-
-
-
-<Posar algun gràfic més amb algun histograma de les dades o algun gràfic de creuament de dues variables??>
-
-
-
-
-
-
-
-
-
-
-
 ### Primers dubtes: treballem a nivell d'impacte o a nivell d'usuari?
 
 Una de les primeres preguntes que ens vam fer era si era més adequat treballar a nivell d'impacte o a nivell d'usuari. És a dir, el dataset el tenim a nivell d'impacte però pot ser que un únic individu faci més d' un impacte en una mateixa campanya i finalment acabi convertint en un dels impactes fets però obviament no en tots. Pot interessar-se per més d'un producte de formació però finalment acabar comprant un de sol.
@@ -59,6 +41,85 @@ Una de les primeres preguntes que ens vam fer era si era més adequat treballar 
 L'anàlisi que hem acabat aplicant i sobre el que aplicarem el model de classificació serà en una visió a nivell d'usuari ja que finalment les accions de priorització a l'hora de dinamitzar els leads es fan a aquest nivell, a nivell d'usuari.
 
 Per fer això hem aplicat un groupby que ens ha permès donar-li la volta al fitxer de dades que teníem per treballar i canviar la visió de les mateixes.
+
+## Arbres de decisió: K-Means
+
+La nostra hipòtesis de partida ha estat si podem realitzar un model que ens predigui si un estudiant es matricularà o no en funció de l' activitat generada durant el procés de campanya de matriculació
+
+Hem executat codi en python i ens ha donat aquest resultat en quant a arbre de decisió senzill:
+
+digraph Tree {
+node [shape=box] ;
+0 [label="regio <= -0.7667\nentropy = 0.8803\nsamples = 103432\nvalue = [72484, 30948]"] ;
+1 [label="idioma_recode <= 0.0589\nentropy = 0.4355\nsamples = 20108\nvalue = [18304, 1804]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="producte_comprat_recode <= 0.5535\nentropy = 0.6334\nsamples = 8853\nvalue = [7440, 1413]"] ;
+1 -> 2 ;
+3 [label="entropy = 0.5687\nsamples = 7924\nvalue = [6861, 1063]"] ;
+2 -> 3 ;
+4 [label="entropy = 0.9557\nsamples = 929\nvalue = [579, 350]"] ;
+2 -> 4 ;
+5 [label="canal_recode <= 1.5582\nentropy = 0.2176\nsamples = 11255\nvalue = [10864, 391]"] ;
+1 -> 5 ;
+6 [label="entropy = 0.1584\nsamples = 10745\nvalue = [10497, 248]"] ;
+5 -> 6 ;
+7 [label="entropy = 0.856\nsamples = 510\nvalue = [367, 143]"] ;
+5 -> 7 ;
+8 [label="producte_comprat_recode <= 0.5535\nentropy = 0.9339\nsamples = 83324\nvalue = [54180, 29144]"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="idioma_recode <= 0.0589\nentropy = 0.8971\nsamples = 67714\nvalue = [46488, 21226]"] ;
+8 -> 9 ;
+10 [label="entropy = 0.9605\nsamples = 39249\nvalue = [24195, 15054]"] ;
+9 -> 10 ;
+11 [label="entropy = 0.7543\nsamples = 28465\nvalue = [22293, 6172]"] ;
+9 -> 11 ;
+12 [label="idioma_recode <= 0.0589\nentropy = 0.9998\nsamples = 15610\nvalue = [7692, 7918]"] ;
+8 -> 12 ;
+13 [label="entropy = 0.9859\nsamples = 7119\nvalue = [3063, 4056]"] ;
+12 -> 13 ;
+14 [label="entropy = 0.9941\nsamples = 8491\nvalue = [4629, 3862]"] ;
+12 -> 14 ;
+}
+
+<EXPLICAR UNA MICA MILLOR L'ARBRE>
+
+
+
+
+
+Paral·lelament, hem carregat el fitxer a K-nime (una eina que dominem una mica millor) i ens ha donat el següent resultat:
+
+<img src="https://jercapstone.github.io/UBCapstonePG/UBCapstonePG/kmeans.jpg />
+
+Amb aquesta informació no traiem grans conclussions. Ens indica que una de les variables que més determina els diferents clusters que hem fet és l'edat però la resta de variables no discriminen gaire els diferents clusters realitzats.
+
+
+## Nearest Neighbours
+
+Següent pas que hem fet ha estat aplicar un model de predicci senzill. El primer que hem aplicat és el model de classificació bàsic Nearest Neighbours al nostre dataset per veure si aconseguim un model de predicció amb uns bons resultats.
+
+Aquest model el que fa és classificar els diferents casos dintre del model en funció de les distàncies dels casos que té al voltant
+
+### Crossvalidation
+
+Els accuracy que ens trobem en aquest model per cada train que realitzem són més baixos en general que els que ens trobavem al Random forest tot i que és cert que no tenim la variabilitat que teníem en l'anterior model:
+
+<img src="https://jercapstone.github.io/UBCapstonePG/crossvalidationKN.jpg" />
+
+### Matriu de confusió
+
+La matriu de confusió que ens trobem en el model de Nearest Neighbours ens està donant resultats menys precisos que l'anterior model també. 
+
+<img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixKN.jpg" />
+
+Veiem que els paràmetres que indiquen la qualitat del model, de forma general són de menys qualitat que els que ens donava l'anterior model tenint un precision de 0.55 i un recall de 0.52.
+
+Si fem el mateix exercici que hem realitzat abans sí que veiem que aquest model serveix millor per predir els estudiants que sí que s'acabaran matriculant. Si abans dels que predíem com a matriculats, encertavem només un 16% ara encertarem un 33%. No obstant no és una raó de pes per decantar-nos per aquest model.
+
+<img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixKNexp.jpg" />
+
+<hi ha una segona matriu de confusió amb millor puntuació però no encerto a veure les diferències, la podem explicar enrique??, esta just al costat del grafic d'snooping>
+
 
 
 ## Random Forest
@@ -116,31 +177,3 @@ En aquest cas veiem que de les 27 variables que teníem (26 si traiem la variabl
 <img src="https://jercapstone.github.io/UBCapstonePG/variablesRFexp.jpg" />
 
 Aquestes variables són la regió, que com hem explicat al principi indica la comunitat autònoma de l'usuari que ha realitzat el contacte amb la Universitat i que pesa un 33%, l'idioma del producte comprat i el producte comprat. Amb el coneixement que tenim del negoci, podem dir que el pes d'aquestes variables és esperat sobretot pel que fa a la regió ja que a la institució analitzada així com a la resta d'institucions d'educació superior d l'estat el pes territorial de les instituciosn encara és molt gran entre els estudiants a l'hora de decidir-se per buscar un centre on cursar els estudis superiors.
-
-
-<buscar algun document, o alguna referència a aquest tema per posar-ho com a font??>
-
-
-
-## Nearest Neighbours
-
-Hem aplicat un segon model de classificació al nostre dataset per veure si el resultat era millor i aconseguiem afinar el model de predicció.
-
-### Crossvalidation
-
-Els accuracy que ens trobem en aquest model per cada train que realitzem són més baixos en general que els que ens trobavem al Random forest tot i que és cert que no tenim la variabilitat que teníem en l'anterior model:
-
-<img src="https://jercapstone.github.io/UBCapstonePG/crossvalidationKN.jpg" />
-### Matriu de confusió
-
-La matriu de confusió que ens trobem en el model de Nearest Neighbours ens està donant resultats menys precisos que l'anterior model també. 
-
-<img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixKN.jpg" />
-
-Veiem que els paràmetres que indiquen la qualitat del model, de forma general són de menys qualitat que els que ens donava l'anterior model tenint un precision de 0.55 i un recall de 0.52.
-
-Si fem el mateix exercici que hem realitzat abans sí que veiem que aquest model serveix millor per predir els estudiants que sí que s'acabaran matriculant. Si abans dels que predíem com a matriculats, encertavem només un 16% ara encertarem un 33%. No obstant no és una raó de pes per decantar-nos per aquest model.
-
-<img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixKNexp.jpg" />
-
-<hi ha una segona matriu de confusió amb millor puntuació però no encerto a veure les diferències, la podem explicar enrique??, esta just al costat del grafic d'snooping>
