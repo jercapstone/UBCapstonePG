@@ -30,7 +30,6 @@ Primer de tot, hem fet un descriptiu bàsic del nostre dataset on hem vist quant
 
 El nostre dataset consta de 27 variables que podem agrupar en variables d'usuari (identificador del mateix, país, comunitat autònoma, data de naixement i gènere), variables de producte d'interès (producte, àrea d'estudis del producte, subàrea d'estudis del producte, tipologia del producte i l'idioma de docència del producte), variables referents a l'interés de l'usuari (identificador de l'impacte, data creació impacte, estat de l'impacte, justificació, punt d'entrada de l'impacte, canal pel qual ha entrat, tipus de campanya i semestre d'entrada del lead), variables referents al cicle de maduració del mateix lead, als diferents estats pel que passa (data accés, data connexió, data proposta, etc.) i per últim la variable que volem predir referida a cada usuari, si s'ha matriculat o no.
 
-<img src="https://github.com/jercapstone/UBCapstonePG/blob/master/descriptive.jpg" />
 <img src="https://jercapstone.github.io/UBCapstonePG/descriptive.jpg" />
 
 Tenim un total de 133.240 registres referents a 4 campanyes diferents de matrícula.
@@ -71,7 +70,7 @@ Apliquem el primer classificador que hem utilitzat per tal de definir el nostre 
 
 Un cop aplicat això ens trobem amb el nostre primer resultat sorpresa:
 
-<img src="https://github.com/jercapstone/UBCapstonePG/blob/master/crossvalidationRF.jpg" />
+<img src="https://jercapstone.github.io/UBCapstonePG/crossvalidationRF.jpg" />
 
 El que ens ha sorprés és trobar-nos amb unes diferències tant elevades entre els accuracys dels diferents entrenaments que hem realitzat. Ens trobem accuracys que van entre el 0.53 o 0.54 que ens trobem a les proves realitzades en 3a, 2a i 5a posició i accuracys que volten 0.97 o 0.98 que són els que s'assignen a les proves 7a, 8a i 9a. És a dir, les proves realitzades al final tenen una accuracy molt superior a les realitzades al principi. 
 
@@ -91,11 +90,12 @@ Aquest resultat ens ha sorprès per que podria indicar que el dataset està orde
 
 Un segon output en que ens fixem del model és la matriu de confusió. Aparentment una matriu que dona uns resultats que a priori podríem considerar que no són dolents a l'hora de definir el model:
 
-<img src="https://github.com/jercapstone/UBCapstonePG/blob/master/confusionmatrixRF.jpg" />
+
+<img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixRF.jpg" />
 
 En una primera mirada de la Matriu de confusió, ens diu que la predicció del nostre model té una precisió d'un 68% i un recall del 65%, un model amb uns resultats millorables però acceptables. No obstant, si baixem una mica aquesta informació i aprofondim en els paràmetres precisió i recall, ens trobem amb el següent:
 
-<img src="https://github.com/jercapstone/UBCapstonePG/blob/master/confusionmatrixRFexp.jpg" />
+<img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixRFexp.jpg" />
 
 La variable precision és la precisió del model i ens indicaria,  dels que hem predit com a no matriculats quants hem encertat. En el nostre cas un 73%. També ens indicaria dels que he predit com a matriculats quants he encertat que també en aquest cas seria un 56%. Això ja ens diu que el model encerta molt millor les prediccions dels no matriculats que les prediccions d'estudiants matriculats.
 
@@ -108,11 +108,11 @@ Queda clar doncs, que el nostre model l'hauríem de treballar millor incorporant
 
 El darrer output que hem analitzat del classificador Random Forest és veure quines són les variables que està utilitzant per construir el model.
 
-<img src="https://github.com/jercapstone/UBCapstonePG/blob/master/variablesRFjpg" />
-
+<img src="https://jercapstone.github.io/UBCapstonePG/variablesRF.jpg" />
 En aquest cas veiem que de les 27 variables que teníem (26 si traiem la variable que volíem explicar) estem explicant el model només amb 9. D'aquestes 9 hi ha tres que tenen una mica més pes que la resta.
 
-<img src="https://github.com/jercapstone/UBCapstonePG/blob/master/variablesRFexp.jpg" />
+
+<img src="https://jercapstone.github.io/UBCapstonePG/variablesRFexp.jpg" />
 
 Aquestes variables són la regió, que com hem explicat al principi indica la comunitat autònoma de l'usuari que ha realitzat el contacte amb la Universitat i que pesa un 33%, l'idioma del producte comprat i el producte comprat. Amb el coneixement que tenim del negoci, podem dir que el pes d'aquestes variables és esperat sobretot pel que fa a la regió ja que a la institució analitzada així com a la resta d'institucions d'educació superior d l'estat el pes territorial de les instituciosn encara és molt gran entre els estudiants a l'hora de decidir-se per buscar un centre on cursar els estudis superiors.
 
@@ -129,18 +129,17 @@ Hem aplicat un segon model de classificació al nostre dataset per veure si el r
 
 Els accuracy que ens trobem en aquest model per cada train que realitzem són més baixos en general que els que ens trobavem al Random forest tot i que és cert que no tenim la variabilitat que teníem en l'anterior model:
 
-<img src="https://github.com/jercapstone/UBCapstonePG/blob/master/crossvalidationKN.jpg" />
-
+<img src="https://jercapstone.github.io/UBCapstonePG/crossvalidationKN.jpg" />
 ### Matriu de confusió
 
 La matriu de confusió que ens trobem en el model de Nearest Neighbours ens està donant resultats menys precisos que l'anterior model també. 
 
-<img src="https://github.com/jercapstone/UBCapstonePG/blob/master/confusionmatrixKN.jpg" />
+<img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixKN.jpg" />
 
 Veiem que els paràmetres que indiquen la qualitat del model, de forma general són de menys qualitat que els que ens donava l'anterior model tenint un precision de 0.55 i un recall de 0.52.
 
 Si fem el mateix exercici que hem realitzat abans sí que veiem que aquest model serveix millor per predir els estudiants que sí que s'acabaran matriculant. Si abans dels que predíem com a matriculats, encertavem només un 16% ara encertarem un 33%. No obstant no és una raó de pes per decantar-nos per aquest model.
 
-<img src="https://github.com/jercapstone/UBCapstonePG/blob/master/confusionmatrixKNexp.jpg" />
+<img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixKNexp.jpg" />
 
 <hi ha una segona matriu de confusió amb millor puntuació però no encerto a veure les diferències, la podem explicar enrique??, esta just al costat del grafic d'snooping>
