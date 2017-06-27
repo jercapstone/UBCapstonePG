@@ -48,7 +48,7 @@ La nostra hipòtesis de partida ha estat si podem realitzar un model que ens pre
 
 Hem executat codi en python i ens ha donat aquest resultat en quant a arbre de decisió senzill:
 
-<img src="https://jercapstone.github.io/UBCapstonePG/UBCapstonePG/UBCapstonePG/decisiontree.jpg" />
+<img src="https://jercapstone.github.io/UBCapstonePG/decisiontree.jpg" />
 
 
 <EXPLICAR UNA MICA MILLOR L'ARBRE>
@@ -59,7 +59,7 @@ Hem executat codi en python i ens ha donat aquest resultat en quant a arbre de d
 
 Paral·lelament, hem carregat el fitxer a K-nime (una eina que dominem una mica millor) i ens ha donat el següent resultat:
 
-<img src="https://jercapstone.github.io/UBCapstonePG/UBCapstonePG/kmeans.jpg" />
+<img src="https://jercapstone.github.io/UBCapstonePG/kmeans.jpg" />
 
 Amb aquesta informació no traiem grans conclussions. Ens indica que una de les variables que més determina els diferents clusters que hem fet és l'edat però la resta de variables no discriminen gaire els diferents clusters realitzats.
 
