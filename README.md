@@ -48,38 +48,8 @@ La nostra hipòtesis de partida ha estat si podem realitzar un model que ens pre
 
 Hem executat codi en python i ens ha donat aquest resultat en quant a arbre de decisió senzill:
 
-digraph Tree {
-node [shape=box] ;
-0 [label="regio <= -0.7667\nentropy = 0.8803\nsamples = 103432\nvalue = [72484, 30948]"] ;
-1 [label="idioma_recode <= 0.0589\nentropy = 0.4355\nsamples = 20108\nvalue = [18304, 1804]"] ;
-0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
-2 [label="producte_comprat_recode <= 0.5535\nentropy = 0.6334\nsamples = 8853\nvalue = [7440, 1413]"] ;
-1 -> 2 ;
-3 [label="entropy = 0.5687\nsamples = 7924\nvalue = [6861, 1063]"] ;
-2 -> 3 ;
-4 [label="entropy = 0.9557\nsamples = 929\nvalue = [579, 350]"] ;
-2 -> 4 ;
-5 [label="canal_recode <= 1.5582\nentropy = 0.2176\nsamples = 11255\nvalue = [10864, 391]"] ;
-1 -> 5 ;
-6 [label="entropy = 0.1584\nsamples = 10745\nvalue = [10497, 248]"] ;
-5 -> 6 ;
-7 [label="entropy = 0.856\nsamples = 510\nvalue = [367, 143]"] ;
-5 -> 7 ;
-8 [label="producte_comprat_recode <= 0.5535\nentropy = 0.9339\nsamples = 83324\nvalue = [54180, 29144]"] ;
-0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
-9 [label="idioma_recode <= 0.0589\nentropy = 0.8971\nsamples = 67714\nvalue = [46488, 21226]"] ;
-8 -> 9 ;
-10 [label="entropy = 0.9605\nsamples = 39249\nvalue = [24195, 15054]"] ;
-9 -> 10 ;
-11 [label="entropy = 0.7543\nsamples = 28465\nvalue = [22293, 6172]"] ;
-9 -> 11 ;
-12 [label="idioma_recode <= 0.0589\nentropy = 0.9998\nsamples = 15610\nvalue = [7692, 7918]"] ;
-8 -> 12 ;
-13 [label="entropy = 0.9859\nsamples = 7119\nvalue = [3063, 4056]"] ;
-12 -> 13 ;
-14 [label="entropy = 0.9941\nsamples = 8491\nvalue = [4629, 3862]"] ;
-12 -> 14 ;
-}
+<img src="https://jercapstone.github.io/UBCapstonePG/UBCapstonePG/UBCapstonePG/decisiontree.jpg" />
+
 
 <EXPLICAR UNA MICA MILLOR L'ARBRE>
 
@@ -89,7 +59,7 @@ node [shape=box] ;
 
 Paral·lelament, hem carregat el fitxer a K-nime (una eina que dominem una mica millor) i ens ha donat el següent resultat:
 
-<img src="https://jercapstone.github.io/UBCapstonePG/UBCapstonePG/kmeans.jpg />
+<img src="https://jercapstone.github.io/UBCapstonePG/UBCapstonePG/kmeans.jpg" />
 
 Amb aquesta informació no traiem grans conclussions. Ens indica que una de les variables que més determina els diferents clusters que hem fet és l'edat però la resta de variables no discriminen gaire els diferents clusters realitzats.
 
