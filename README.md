@@ -1,5 +1,9 @@
 # Model predictiu d'un procés de compra en el sector de l'educació superior
 
+## Participants al projecte
+
+Aquest projecte ha estat realitzat per Enrique Rodríguez, Jordi Palau i Raúl Zafra.
+
 ## Introducció
 
 Els diferents canvis que han sofert darrerament el sector de l'educació superior a Espanya arrel de l'entrada en vigor de l’Espai d’Educació Superior i dels canvis demografics que s'han produït als darrers anys així com la disminució de les subvencions per part dels governs a les diferents institucions públiques d'ensenyament, fan que hi hagi un entorn molt competitiu entre les diferents institucions a fi de poder aconseguir nous alumnes per poder desenvolupar la seva activitat. 
@@ -7,10 +11,6 @@ Els diferents canvis que han sofert darrerament el sector de l'educació superio
 Els criteris dels futurs alumnes per acabar seleccionant una institució s’han modificat. A part dels antics criteris que definien les institucions com el prestigi, l’antiguitat, la tradició i l’empleabilitat, s’estan afegint criteris que s’apropen perillosament a un model de negoci més comercial que no, d’una institució educativa. Aquest nous criteris van vinculats, a l’atenció personalitzada, el servei, posicionament en els rankings, satisfacció, preu.
 
 És per aquest motiu, que ens plantegem crear un model predictiu que ajudi a les institucions a millorar la seva eficàcia i eficiciència, a l’hora d’incorporar nous estudiant.  En base a les característiques de les persones que s’apropen demanant informació sobre els diferents programes formatius que ofereixen hem obtingut diferents variables.
-
-## Participants al projecte
-
-Aquest projecte ha estat realitzat per Enrique Rodríguez, Jordi Palau i Raúl Zafra.
 
 ## Descripció del projecte
 
@@ -164,7 +164,7 @@ En aquest cas veiem que de les 27 variables que teníem (26 si traiem la variabl
 
 Aquestes variables són la regió, que com hem explicat al principi indica la comunitat autònoma de l'usuari que ha realitzat el contacte amb la Universitat i que pesa un 33%, l'idioma del producte comprat i el producte comprat. Amb el coneixement que tenim del negoci, podem dir que el pes d'aquestes variables és esperat sobretot pel que fa a la regió ja que a la institució analitzada així com a la resta d'institucions d'educació superior d l'estat el pes territorial de les instituciosn encara és molt gran entre els estudiants a l'hora de decidir-se per buscar un centre on cursar els estudis superiors.
 
-## Conclussions
+## Conclusions
 
 Les principals conclussions extretes del treball que hem realitzat, són les següents:
 
