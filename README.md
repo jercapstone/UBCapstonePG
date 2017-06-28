@@ -168,22 +168,35 @@ Aquestes variables són la regió, que com hem explicat al principi indica la co
 
 Les principals conclussions extretes del treball que hem realitzat, són les següents:
 
-<ul>Hem aplicat tres models per intentar predir si un usuari que s'apropa a una Universitat durant un procés de campanya de matriculació s'acabarà matriculant o no, en base a l'activitat generada durant el procés.
-<ul>Els models aplicats són un model d'Arbres de decisió, el model de Nearest Neighbours i el model Random Forest.
-<ul>Un cop aplicats els tres models podem dir, que els tres models són molt millorables ja que en cap dels tres hem obtingut uns nivells de bonança del model òptim tot i que entre els tres podem dir que el que millor funciona és el Random Forest.
-<ul>En el Random Forest les variables que més influeixen en el model són la regió, el producte comprat i l'idioma del producte comprat.
-<ul>El Random Forest prediu millor els estudiants que no es matricularan que els que es matricularan.
-<ul>A nivell general, podem dir que existeix relació entre el perfil socio-demogràfic i la intenció de matrícula.
-<ul>També existeix relació entre l' activitat generada durante el procés de matrícula i la intenció de matrícula.
-<ul>Així doncs, és possible trobar un model predictiu de la intenció de matrícula a partir del perfil demogràfic de la persona interesada i l' activitat generada durant el procés de matrícula.
+<li>Hem aplicat tres models per intentar predir si un usuari que s'apropa a una Universitat durant un procés de campanya de matriculació s'acabarà matriculant o no, en base a l'activitat generada durant el procés.
+<li>Els models aplicats són un model d'Arbres de decisió, el model de Nearest Neighbours i el model Random Forest.
+<li>Un cop aplicats els tres models podem dir, que els tres models són molt millorables ja que en cap dels tres hem obtingut uns nivells de bonança del model òptim tot i que entre els tres podem dir que el que millor funciona és el Random Forest.
+<li>En el Random Forest les variables que més influeixen en el model són la regió, el producte comprat i l'idioma del producte comprat.
+<li>El Random Forest prediu millor els estudiants que no es matricularan que els que es matricularan.
+<li>A nivell general, podem dir que existeix relació entre el perfil socio-demogràfic i la intenció de matrícula.
+<li>També existeix relació entre l' activitat generada durante el procés de matrícula i la intenció de matrícula.
+<li>Així doncs, és possible trobar un model predictiu de la intenció de matrícula a partir del perfil demogràfic de la persona interesada i l' activitat generada durant el procés de matrícula.
 
 ## Properes passes
 
 Com a properes passes que ens posem, tenim les següents fites:
 
-<ul>Analitzar la consistència de les dades per millorar la qualitat de la informació tractada.
-<ul>Generar noves variables derivades de les que disposem actualment.
-<ul>Identificar variables que permetin millorar la capacitat predictiva dels models.
-<ul>Continuar avaluant mètodes de segmentació d'usuaris i de predicció del comportament.
+<li>Analitzar la consistència de les dades per millorar la qualitat de la informació tractada.
+<li>Generar noves variables derivades de les que disposem actualment.
+<li>Identificar variables que permetin millorar la capacitat predictiva dels models.
+<li>Continuar avaluant mètodes de segmentació d'usuaris i de predicció del comportament.
+
+### Crossvalidation
+
+Apliquem el classificad
+
+## Properes passes
+
+Com a properes passes que ens posem, tenim les següents fites:
+
+<li>Analitzar la consistència de les dades per millorar la qualitat de la informació tractada.
+<li>Generar noves variables derivades de les que disposem actualment.
+<li>Identificar variables que permetin millorar la capacitat predictiva dels models.
+<li>Continuar avaluant mètodes de segmentació d'usuaris i de predicció del comportament.
 
 
