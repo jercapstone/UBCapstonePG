@@ -100,7 +100,7 @@ La interpretació d'aquest gràfic és jeràrquica, seguint l'eix des de dalt ca
 
 Veiem que les variables que més determinen el model són la regió (la primera variable, Node 0), l'idioma del producte comprat (que penja del Node 0 i és el Node 1), el producte comprat en sí (Node 2 que penja del Node 1) i el canal (Node 3 que també penja del Node 1). Ens quedaríem amb aquestes variables com els principals factors identificats. 
 
- ### Matriu de confusió
+### Matriu de confusió
  
  La matriu de confusió resultant de l'arbre de decisió és la següent.
 
