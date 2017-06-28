@@ -185,6 +185,6 @@ Com a properes passes que ens posem, tenim les següents fites:
 <li>Analitzar la consistència de les dades per millorar la qualitat de la informació tractada.
 <li>Generar noves variables derivades de les que disposem actualment.
 <li>Identificar variables que permetin millorar la capacitat predictiva dels models.
-<li>Continuar avaluant mètodes de segmentació d'usuaris i de predicció del comportament.
+<li>Continuar avaluant mètodes de segmentació d'usuaris i de predicció del comportament.</li>
 
 
