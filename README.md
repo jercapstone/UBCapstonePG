@@ -175,7 +175,7 @@ Les principals conclussions extretes del treball que hem realitzat, són les seg
 <li>El Random Forest prediu millor els estudiants que no es matricularan que els que es matricularan.
 <li>A nivell general, podem dir que existeix relació entre el perfil socio-demogràfic i la intenció de matrícula.
 <li>També existeix relació entre l' activitat generada durante el procés de matrícula i la intenció de matrícula.
-<li>Així doncs, és possible trobar un model predictiu de la intenció de matrícula a partir del perfil demogràfic de la persona interesada i l' activitat generada durant el procés de matrícula.</li>
+<li>Així doncs, és possible trobar un model predictiu de la intenció de matrícula a partir del perfil demogràfic de la persona interesada i l' activitat generada durant el procés de matrícula.
 
 ## Properes passes
 
@@ -184,7 +184,7 @@ Com a properes passes que ens posem, tenim les següents fites:
 <li>Analitzar la consistència de les dades per millorar la qualitat de la informació tractada.
 <li>Generar noves variables derivades de les que disposem actualment.
 <li>Identificar variables que permetin millorar la capacitat predictiva dels models.
-<li>Continuar avaluant mètodes de segmentació d'usuaris i de predicció del comportament.</li>
+<li>Continuar avaluant mètodes de segmentació d'usuaris i de predicció del comportament.
 
 
 
