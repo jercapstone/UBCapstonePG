@@ -187,4 +187,3 @@ Com a properes passes que ens posem, tenim les següents fites:
 <li>Continuar avaluant mètodes de segmentació d'usuaris i de predicció del comportament.
 
 
-
