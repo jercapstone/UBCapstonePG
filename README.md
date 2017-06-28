@@ -52,27 +52,33 @@ El resultat obtingut ha estat que cap variable d'activitat presenta diferències
 
 ## K Nearest Neighbours
 
-Següent pas que hem fet ha estat aplicar un model de predicció també senzill. Hm aplicat el model de classificació bàsic Nearest Neighbours al nostre dataset per veure si aconseguim un model de predicció amb uns bons resultats.
+La nostra hipòtesis de partida ha estat si podem realitzar un model que ens predigui si un estudiant es matricularà o no en funció de l' activitat generada durant el procés de campanya de matriculació
+
+El primer que hem fet ha estat aplicar un model de predicció també senzill. Hem aplicat el model de classificació bàsic Nearest Neighbours al nostre dataset per veure si aconseguim un model de predicció amb uns bons resultats.
 
 Aquest model el que fa és classificar els diferents casos dintre del model en funció de les distàncies dels casos que té al voltant
 
 ### Crossvalidation
 
-Els accuracy que ens trobem en aquest model per cada train que realitzem són més baixos en general que els que ens trobavem als Arbres de decisió anteriors tot i que és cert que no tenim la variabilitat que teníem en l'anterior model:
+Els accuracy que ens trobem en aquest model per cada train que realitzem són baixos en general:
 
 <img src="https://jercapstone.github.io/UBCapstonePG/crossvalidationKN.jpg" />
 
 ### Matriu de confusió
 
-La matriu de confusió que ens trobem en el model de Nearest Neighbours ens està donant resultats menys precisos que l'anterior model també. 
+La matriu de confusió que ens trobem en el model de Nearest Neighbours ens està donant resultats poc precisos.
 
 <img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixKN.jpg" />
 
-Veiem que els paràmetres que indiquen la qualitat del model, de forma general són de menys qualitat que els que ens donava l'anterior model tenint un precision de 0.55 i un recall de 0.52.
-
-Si fem el mateix exercici que hem realitzat abans sí que veiem que aquest model serveix millor per predir els estudiants que sí que s'acabaran matriculant. Si abans dels que predíem com a matriculats, encertavem només un 16% ara encertarem un 33%. No obstant no és una raó de pes per decantar-nos per aquest model.
+El precission average és d'un 0.55 i el recall average és del 0.52. Si aprofondim una mica en aquests paràmetres veiem el següent:
 
 <img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixKNexp.jpg" />
+
+Si mirem els paràmetres que indiquen la qualitat del model, de forma general veiem que són fàcilment millorables. La variable precision és la precisió del model i ens indicaria el següent:  dels que hem predit com a no matriculats quants hem encertat. En el nostre cas tenim un precision de 0.68 en aquest col·lectiu. També ens indicaria dels que he predit com a matriculats quants he encertat que també en aquest cas seria un 0.26. 
+
+Si aprofondim en la variable recall encara ens trobem amb més informació: dels que al dataset estan codificats com a no matriculats, quants hem predit de forma correcta. En el nostre cas un 60%. En canvi si mirem al dataset, dels que eren matriculats quants s'han predit de forma correcta, veiem que aquest percentatge baixa a només el 33%. És a dir, dels que estaven matriculats només hem encertat amb el model que es matricularien en un 33%, la resta els hem fallat.
+
+Això demostraria que el model serveix millor per predir els no matriculats que per predir els matriculats.
 
 Intentem millorar una mica el model i apliquem un procés d' snooping:
 
@@ -84,35 +90,35 @@ Veiem que amb aquest procés el model millora molt passant a tenir uns precision
 
 ## Arbre de decisió simple
 
-La nostra hipòtesis de partida ha estat si podem realitzar un model que ens predigui si un estudiant es matricularà o no en funció de l' activitat generada durant el procés de campanya de matriculació
+Seguint amb la nostra hipòtesis de partida de si podem realitzar un model que ens predigui si un estudiant es matricularà o no en funció de l' activitat generada durant el procés de campanya de matriculació, hem continuat aplicant un Arbre de decisió simple.
 
 Hem executat codi en python i ens ha donat el següent resultat:
 
 <img src="https://jercapstone.github.io/UBCapstonePG/decisiontree.jpg" />
 
-La interpretació d'aquest gràfic és jeràrquica, segugint l'eixdes de dalt cap a baix on va indicant el número de node asociades a la variable que el formen i els does següents que pengen de cada branca.
+La interpretació d'aquest gràfic és jeràrquica, seguint l'eix des de dalt cap a baix on va indicant el número de node asociats a la variable que el formen i els nodes següents que pengen de cada branca.
 
 Veiem que les variables que més determinen el model són la regió (la primera variable, Node 0), l'idioma del producte comprat (que penja del Node 0 i és el Node 1), el producte comprat en sí (Node 2 que penja del Node 1) i el canal (Node 3 que també penja del Node 1). Ens quedaríem amb aquestes variables com els principals factors identificats. 
 
  ### Matriu de confusió
  
- La matriu de confusió resultant del K-means és la següent.
+ La matriu de confusió resultant de l'arbre de decisió és la següent.
 
 <img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixDT.jpg" />
 
-En una primera mirada de la Matriu de confusió, ens diu que la predicció del nostre model té una precisió d'un 67% i un recall del 71%, un model amb uns resultats millorables però acceptables. No obstant, si baixem una mica aquesta informació i aprofondim en els paràmetres precisió i recall, ens trobarem amb alguna sorpresa:
+En una primera mirada de la Matriu de confusió, ens diu que la predicció del nostre model té una precisió d'un 67% i un recall del 71%, un model amb uns resultats millorables però acceptables. No obstant, si baixem una mica aquesta informació igual que hem fet al model de K Nearest Neighbours, i aprofondim en els paràmetres precisió i recall, ens trobarem amb alguna sorpresa:
 
 <img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixDTexp.jpg" />
 
-La variable precision és la precisió del model i ens indicaria el següent:  dels que hem predit com a no matriculats quants hem encertat. En el nostre cas un 72%. També ens indicaria dels que he predit com a matriculats quants he encertat que també en aquest cas seria un 54%. Això ja ens diu que el model encerta molt millor les prediccions dels no matriculats que les prediccions d'estudiants matriculats.
+La variable precision, tal com deiem, és la precisió del model i ens indicaria dels que hem predit com a no matriculats quants hem encertat. En el nostre cas, en aquest model un 0.72. També ens indicaria dels que he predit com a matriculats quants he encertat que també en aquest cas seria un 0.54. Això ja ens diu igual que al KNN que el model encerta molt millor les prediccions dels no matriculats que les prediccions d'estudiants matriculats.
 
-Si aprofondim en la variable recall encara ens trobem amb informació una mica més difícil d'interpretar: dels que al dataset estan codificats com a no matriculats, quants hem predit de forma correcta. En el nostre cas un 95% el que indicaria un encert gairebé perfecte. En canvi si mirem al dataset, dels que eren matriculats quants s'han predit de forma correcta, veiem que aquest percentatge baixa a només el 15%. És a dir, dels que estaven matriculats només hem encertat amb el model que es matricularien en un 15%, el 845% els hem fallat.
+Si aprofondim en la variable recall encara ens trobem amb informació una mica més difícil d'interpretar: dels que al dataset estan codificats com a no matriculats, prediem de forma correcta un 95% el que indicaria un encert gairebé perfecte. En canvi si mirem al dataset dels que eren matriculats quants s'han predit de forma correcta, veiem que aquest percentatge baixa a només el 15%. És a dir, dels que estaven matriculats només hem encertat amb el model que es matricularien en un 15%, el 85% els hem fallat.
 
-Queda clar doncs, que el nostre model l'hauríem de treballar millor incorporant alguna variable més que ens ajudi a ajustar-lo, sobretot pel que fa a la part dels matriculats. Com hem indicat previament,és curiós també que si mirem la mitjana d'aquestes variables realment  no deixen malament el model. Ens quedem amb un precision average  i un recall average del 67 i 71 respectivament.
+Queda clar doncs, que el nostre model l'hauríem de treballar millor incorporant alguna variable més que ens ajudi a ajustar-lo, sobretot pel que fa a la part dels matriculats. Com hem indicat previament, és curiós també que si mirem la mitjana d'aquestes variables realment  no deixen malament el model. Ens quedem amb un precision average  i un recall average del 67 i 71 respectivament.
 
 ## Random Forest
 
-Intentarem millorar el classificador que hem obtingut amb el Nearest Neighbours aplicant un segon classificador una mica més complexe. És un classificador molt fàcil d'aplicar però amb una dificultat afegida a l'hora d'interpretar els resultats.
+Intentarem millorar el classificador que hem obtingut amb el K Nearest Neighbours i l'Arbre de Decisió aplicant un altre classificador una mica més complexe. És un classificador molt fàcil d'aplicar però amb una dificultat afegida a l'hora d'interpretar els resultats.
 
 ### Crossvalidation
 
@@ -169,7 +175,7 @@ Les principals conclussions extretes del treball que hem realitzat, són les seg
 <li>El Random Forest prediu millor els estudiants que no es matricularan que els que es matricularan.
 <li>A nivell general, podem dir que existeix relació entre el perfil socio-demogràfic i la intenció de matrícula.
 <li>També existeix relació entre l' activitat generada durante el procés de matrícula i la intenció de matrícula.
-<li>Així doncs, és possible trobar un model predictiu de la intenciño de matrícula a partir del perfil demogràfic de la persona interesada i l' activitat generada durant el procés de matrícula.
+<li>Així doncs, és possible trobar un model predictiu de la intenció de matrícula a partir del perfil demogràfic de la persona interesada i l' activitat generada durant el procés de matrícula.
 
 ## Properes passes
 
