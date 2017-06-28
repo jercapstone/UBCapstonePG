@@ -177,6 +177,7 @@ Les principals conclussions extretes del treball que hem realitzat, són les seg
 <li>També existeix relació entre l' activitat generada durante el procés de matrícula i la intenció de matrícula.
 <li>Així doncs, és possible trobar un model predictiu de la intenció de matrícula a partir del perfil demogràfic de la persona interesada i l' activitat generada durant el procés de matrícula.
 
+
 ## Properes passes
 
 Com a properes passes que ens posem, tenim les següents fites:
