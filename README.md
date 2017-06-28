@@ -42,40 +42,15 @@ L'anàlisi que hem acabat aplicant i sobre el que aplicarem el model de classifi
 
 Per fer això hem aplicat un groupby que ens ha permès donar-li la volta al fitxer de dades que teníem per treballar i canviar la visió de les mateixes.
 
-## Arbres de decisió: K-Means
+## Agrupació en segments (per k=3 fins a 8) amb KMeans
 
-La nostra hipòtesis de partida ha estat si podem realitzar un model que ens predigui si un estudiant es matricularà o no en funció de l' activitat generada durant el procés de campanya de matriculació
+Hem agrupat els usuaris en funció de l'activitat generada en campanya. La metodologia utilitzada ha estat KMeans per a un número de segments entre 3 i 8.
 
-Hem executat codi en python i ens ha donat el següent resultat:
-
-<img src="https://jercapstone.github.io/UBCapstonePG/decisiontree.jpg" />
-
-Veiem que les variables que més determinen el model són la regió, l'idioma del producte comprat i el producte comprat en sí. 
-
- ### Matriu de confusió
- 
- La matriu de confusió resultant del K-means és la següent.
-
-<img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixDT.jpg" />
-
-En una primera mirada de la Matriu de confusió, ens diu que la predicció del nostre model té una precisió d'un 67% i un recall del 71%, un model amb uns resultats millorables però acceptables. No obstant, si baixem una mica aquesta informació i aprofondim en els paràmetres precisió i recall, ens trobarem amb alguna sorpresa:
-
-<img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixDTexp.jpg" />
-
-La variable precision és la precisió del model i ens indicaria el següent:  dels que hem predit com a no matriculats quants hem encertat. En el nostre cas un 72%. També ens indicaria dels que he predit com a matriculats quants he encertat que també en aquest cas seria un 54%. Això ja ens diu que el model encerta molt millor les prediccions dels no matriculats que les prediccions d'estudiants matriculats.
-
-Si aprofondim en la variable recall encara ens trobem amb informació una mica més difícil d'interpretar: dels que al dataset estan codificats com a no matriculats, quants hem predit de forma correcta. En el nostre cas un 95% el que indicaria un encert gairebé perfecte. En canvi si mirem al dataset, dels que eren matriculats quants s'han predit de forma correcta, veiem que aquest percentatge baixa a només el 15%. És a dir, dels que estaven matriculats només hem encertat amb el model que es matricularien en un 15%, el 845% els hem fallat.
-
-Queda clar doncs, que el nostre model l'hauríem de treballar millor incorporant alguna variable més que ens ajudi a ajustar-lo, sobretot pel que fa a la part dels matriculats. Com hem indicat previament,és curiós també que si mirem la mitjana d'aquestes variables realment  no deixen malament el model. Ens quedem amb un precision average  i un recall average del 67 i 71 respectivament.
-
-Paral·lelament, hem carregat el fitxer a K-nime (una eina que dominem una mica millor) i ens ha donat el següent resultat:
+El resultat obtingut ha estat que cap variable d'activitat presenta diferències significatives entre grups. La única variable que presenta diferències significatives entre grups ha estat l'edad (prèviament normalitzada).
 
 <img src="https://jercapstone.github.io/UBCapstonePG/kmeans.jpg" />
 
-Amb aquesta informació no traiem grans conclussions. Ens indica que una de les variables que més determina els diferents clusters que hem fet és l'edat però la resta de variables no discriminen gaire els diferents clusters realitzats.
-
-
-## Nearest Neighbours
+## K Nearest Neighbours
 
 Següent pas que hem fet ha estat aplicar un model de predicció també senzill. Hm aplicat el model de classificació bàsic Nearest Neighbours al nostre dataset per veure si aconseguim un model de predicció amb uns bons resultats.
 
@@ -107,7 +82,33 @@ Intentem millorar una mica el model i apliquem un procés d' snooping:
 
 Veiem que amb aquest procés el model millora molt passant a tenir uns precision average de 0.64 i un recall average de 0.65.
 
+## Arbre de decisió simple
 
+La nostra hipòtesis de partida ha estat si podem realitzar un model que ens predigui si un estudiant es matricularà o no en funció de l' activitat generada durant el procés de campanya de matriculació
+
+Hem executat codi en python i ens ha donat el següent resultat:
+
+<img src="https://jercapstone.github.io/UBCapstonePG/decisiontree.jpg" />
+
+La interpretació d'aquest gràfic és jeràrquica, segugint l'eixdes de dalt cap a baix on va indicant el número de node asociades a la variable que el formen i els does següents que pengen de cada branca.
+
+Veiem que les variables que més determinen el model són la regió (la primera variable, Node 0), l'idioma del producte comprat (que penja del Node 0 i és el Node 1), el producte comprat en sí (Node 2 que penja del Node 1) i el canal (Node 3 que també penja del Node 1). Ens quedaríem amb aquestes variables com els principals factors identificats. 
+
+ ### Matriu de confusió
+ 
+ La matriu de confusió resultant del K-means és la següent.
+
+<img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixDT.jpg" />
+
+En una primera mirada de la Matriu de confusió, ens diu que la predicció del nostre model té una precisió d'un 67% i un recall del 71%, un model amb uns resultats millorables però acceptables. No obstant, si baixem una mica aquesta informació i aprofondim en els paràmetres precisió i recall, ens trobarem amb alguna sorpresa:
+
+<img src="https://jercapstone.github.io/UBCapstonePG/confusionmatrixDTexp.jpg" />
+
+La variable precision és la precisió del model i ens indicaria el següent:  dels que hem predit com a no matriculats quants hem encertat. En el nostre cas un 72%. També ens indicaria dels que he predit com a matriculats quants he encertat que també en aquest cas seria un 54%. Això ja ens diu que el model encerta molt millor les prediccions dels no matriculats que les prediccions d'estudiants matriculats.
+
+Si aprofondim en la variable recall encara ens trobem amb informació una mica més difícil d'interpretar: dels que al dataset estan codificats com a no matriculats, quants hem predit de forma correcta. En el nostre cas un 95% el que indicaria un encert gairebé perfecte. En canvi si mirem al dataset, dels que eren matriculats quants s'han predit de forma correcta, veiem que aquest percentatge baixa a només el 15%. És a dir, dels que estaven matriculats només hem encertat amb el model que es matricularien en un 15%, el 845% els hem fallat.
+
+Queda clar doncs, que el nostre model l'hauríem de treballar millor incorporant alguna variable més que ens ajudi a ajustar-lo, sobretot pel que fa a la part dels matriculats. Com hem indicat previament,és curiós també que si mirem la mitjana d'aquestes variables realment  no deixen malament el model. Ens quedem amb un precision average  i un recall average del 67 i 71 respectivament.
 
 ## Random Forest
 
@@ -157,9 +158,7 @@ En aquest cas veiem que de les 27 variables que teníem (26 si traiem la variabl
 
 Aquestes variables són la regió, que com hem explicat al principi indica la comunitat autònoma de l'usuari que ha realitzat el contacte amb la Universitat i que pesa un 33%, l'idioma del producte comprat i el producte comprat. Amb el coneixement que tenim del negoci, podem dir que el pes d'aquestes variables és esperat sobretot pel que fa a la regió ja que a la institució analitzada així com a la resta d'institucions d'educació superior d l'estat el pes territorial de les instituciosn encara és molt gran entre els estudiants a l'hora de decidir-se per buscar un centre on cursar els estudis superiors.
 
-## Conclussions i properes passes
-
-### Conclussions
+## Conclussions
 
 Les principals conclussions extretes del treball que hem realitzat, són les següents:
 
@@ -172,7 +171,7 @@ Les principals conclussions extretes del treball que hem realitzat, són les seg
 <li>També existeix relació entre l' activitat generada durante el procés de matrícula i la intenció de matrícula.
 <li>Així doncs, és possible trobar un model predictiu de la intenciño de matrícula a partir del perfil demogràfic de la persona interesada i l' activitat generada durant el procés de matrícula.
 
-### Properes passes
+## Properes passes
 
 Com a properes passes que ens posem com a fites tenim:
 
